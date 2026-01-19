@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>RIVA · WorQ Group</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- CSS GLOBAL -->
+  <link rel="stylesheet" href="css/parthners.css">
+</head>
+
+<body class="partner-page partner-elsanto">
+
+<!-- LOGO BACK HOME -->
+<a href="index.html" class="partner-back">
+  <img src="assets/logo_worq/logo_worq.png" alt="WorQ Group">
+</a>
+
+<!-- HERO -->
+<section class="partner-hero">
+  <div class="partner-hero-inner">
+    <h1>EL SANTO</h1>
+    <p>
+      Timeless design pieces crafted for visionary spaces.
+    </p>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="partner-intro">
+  <div class="partner-intro-grid">
+
+    <h2>
+      Crafting identity through<br>
+      material, form and purpose.
+    </h2>
+
+    <p>
+      RIVA is a design-led brand specialising in bespoke furniture and interior
+      solutions for high-end residential and hospitality projects. Their work
+      reflects a balance between contemporary minimalism and enduring craftsmanship.
+    </p>
+
+  </div>
+</section>
+
+<!-- IMAGE -->
+<section class="partner-image">
+  <img src="../assets/partners_pages/riva_01.jpg" alt="Riva project">
+</section>
+
+<!-- IMAGE -->
+
+<!-- VALUES -->
+<section class="partner-values">
+
+  <div class="values-grid">
+
+    <div class="value-item">
+      <h4>Design Philosophy</h4>
+      <p>
+        Clean lines, refined materials and a strong focus on proportion and detail.
+      </p>
+    </div>
+
+    <div class="value-item">
+      <h4>Craftsmanship</h4>
+      <p>
+        Every piece is produced with precision, care and long-term durability in mind.
+      </p>
+    </div>
+
+    <div class="value-item">
+      <h4>Sustainability</h4>
+      <p>
+        Responsible sourcing and efficient production processes guide every project.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CTA -->
+<section class="partner-cta">
+  <h2>Discover how we collaborate with RIVA</h2>
+  <a href="../contact.html" class="btn-grey">Start a conversation</a>
+</section>
+<script>
+  let lastScrollTop = 0;
+  const partnerBack = document.querySelector('.partner-back');
+
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop > lastScrollTop && scrollTop > 100) {
+      // Bajando → ocultar
+      partnerBack.classList.add('hidden');
+    } else {
+      // Subiendo → mostrar
+      partnerBack.classList.remove('hidden');
+    }
+
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+  });
+</script>
+</body>
+</html>

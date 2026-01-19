@@ -1,0 +1,56 @@
+<!-- ================= INTRO ===================== -->
+<section class="intro-section">
+  <div class="intro-grid">
+
+    <h1>
+      We Design, Build and<br>
+      Operate.
+    </h1>
+
+    <div class="intro-text">
+      <p>
+        WorQ is a versatile powerhouse, excelling in architectural design,
+        construction, and hospitality management. We specialize in crafting
+        and managing a diverse array of structures, from luxurious hotels
+        and restaurants to villas, factories, and residential complexes.
+      </p>
+
+      <p>
+        Our commitment to innovation is evident through our adept utilization
+        of advanced technologies like Building Information Modelling (BIM),
+        ensuring meticulous orchestration of every project aspect.
+      </p>
+
+      <div class="button-group">
+        <a href="#" class="btn-grey">Find out about us</a>
+        <a href="#" class="btn-grey">Book a discovery call</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- DIVIDER MOVED TO sections/divider.html -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const divider = document.querySelector(".animate-divider");
+
+  if (!divider) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target); // 🔥 solo una vez
+        }
+      });
+    },
+    {
+      threshold: 0.4
+    }
+  );
+
+  observer.observe(divider);
+});
+</script>
+<!-- ================= END INTRO ===================== -->
