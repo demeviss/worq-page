@@ -1,4 +1,5 @@
-  const galleryImages = document.querySelectorAll('.gallery-grid img');
+ document.querySelectorAll('.gallery-grid:not(.no-lightbox) img')
+
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.querySelector('.lightbox-image');
   const lightboxClose = document.querySelector('.lightbox-close');

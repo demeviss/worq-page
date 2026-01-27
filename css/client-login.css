@@ -163,6 +163,64 @@ button:hover {
   opacity: 1;
   transform: rotate(90deg);
 }
+ .google-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 12px;
+  margin-top: 4px;
+
+  border: 1px solid rgba(255,255,255,0.2);
+  background: transparent;
+
+  color: #ddd;
+  text-decoration: none;
+  font-size: 13px;
+
+  transition: all 0.3s ease;
+}
+
+.google-login img {
+  width: 16px;
+  height: 16px;
+}
+
+.google-login:hover {
+  border-color: #ff7a00;
+  color: #fff;
+  background: rgba(255,255,255,0.03);
+}
+.login-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #666;
+  font-size: 11px;
+  text-transform: uppercase;
+  margin: 6px 0;
+}
+
+.login-divider::before,
+.login-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgba(255,255,255,0.15);
+}
+.request-access {
+  margin-top: 8px;
+  text-align: center;
+  font-size: 12px;
+  color: #888;
+  text-decoration: none;
+}
+
+.request-access:hover {
+  color: #ff7a00;
+}
+
 
 /* mobile */
 @media (max-width: 768px) {
@@ -171,4 +229,5 @@ button:hover {
     right: 20px;
     font-size: 20px;
   }
+ 
 }

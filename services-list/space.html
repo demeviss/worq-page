@@ -7,19 +7,20 @@
 <title>Space Strategy Management</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/space_strategy_management.css">
+<link rel="stylesheet" href="../css/services.css">
 </head>
 
-<body>
-<a href="index.html" class="partner-back">
-  <img src="assets/logo_worq/logo_worq.png" alt="WorQ Group">
+<body class="service-space">
+<a href="../index.html" class="partner-back">
+  <img src="../assets/logo_worq/logo_worq.png" alt="WorQ Group">
 </a>
+
 <!-- HERO -->
 <section class="bim-hero">
   <div class="bim-hero-overlay"></div>
   <div class="bim-hero-content">
     <h1>Space Strategy Management</h1>
-    <p>Strategic planning of space to maximise efficiency, adaptability and long-term performance..</p>
+    <p>We design architecture that balances form, function and long-term value. Our approach is rooted in clarity, efficiency and contextual understanding.</p>
   </div>
 </section>
 
@@ -33,7 +34,7 @@
 By aligning technology with construction insight at every stage, from planning and design to build and operation, we empower our clients to deliver smarter, more efficient buildings. Our mission is simple: help shape the future of the built environment, one model at a time.</p>
     </div>
     <div class="bim-visual">
-      <img src="assets/imagenes/bim/Lead Photo_page-0001.jpg" alt="Discover & Plan">
+      <img src="../assets/imagenes/bim/Lead Photo_page-0001.jpg" alt="Discover & Plan">
     </div>
   </div>
   <div class="bim-step">
@@ -50,7 +51,7 @@ By aligning technology with construction insight at every stage, from planning a
        <li>Training & Process Onboarding </li>
     </div>
     <div class="bim-visual">
-      <img src="assets/imagenes/bim/Concept stage.jpg" alt="Discover & Plan">
+      <img src="../assets/imagenes/bim/Concept stage.jpg" alt="Discover & Plan">
     </div>
   </div>
 
@@ -63,8 +64,8 @@ By aligning technology with construction insight at every stage, from planning a
          <p>Our goal is simple: deliver models and digital assets that reduce errors, improve coordination, and support efficient, cost-effective construction on site.</p>
     </div>
     <div class="bim-visual">
-      <img src="assets/imagenes/bim/Design and modeling stage.jpg" alt="Design & Model">
-      <img src="assets/imagenes/bim/Picture2.png" alt="Design & Model">
+      <img src="../assets/imagenes/bim/Design and modeling stage.jpg" alt="Design & Model">
+      <img src="../assets/imagenes/bim/Picture2.png" alt="Design & Model">
     </div>
      
   </div>
@@ -79,7 +80,7 @@ At WorqGroup, we don’t just hand over a model — we stay actively engaged thr
       <p>At WorqGroup, we build with you — not just for you — to deliver coordinated, constructible results that meet the highest standards of quality, efficiency, and delivery certainty.</p>
     </div>
     <div class="bim-visual">
-      <img src="assets/imagenes/bim/phases-of-construction-project-management.jpg" alt="Deliver & Optimise">
+      <img src="../assets/imagenes/bim/phases-of-construction-project-management.jpg" alt="Deliver & Optimise">
     </div>
   </div>
   <div class="bim-step">
@@ -91,7 +92,7 @@ At WorqGroup, we don’t just hand over a model — we stay actively engaged thr
           <p>Whether you're managing a data centre, hospital, or commercial development, we provide the tools and expertise to future-proof your building’s performance from day one.</p>
     </div>
     <div class="bim-visual">
-      <img src="assets/imagenes/bim/WhatsApp Image 2025-06-02 at 18.40.22_5f1f19be.jpg" alt="Deliver & Optimise">
+      <img src="../assets/imagenes/bim/WhatsApp Image 2025-06-02 at 18.40.22_5f1f19be.jpg" alt="Deliver & Optimise">
     </div>
   </div>
 </section>
@@ -147,83 +148,20 @@ At WorqGroup, we don’t just hand over a model — we stay actively engaged thr
 
 <!-- SCROLL TO TOP -->
 
-<a href="index.html" class="scroll-home" aria-label="Back to home">
+<a href="../index.html" class="scroll-home" aria-label="Back to home">
   ←
 </a>
 
 
-<script src="js/bim.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const numbers = document.querySelectorAll(".impact-number");
+<script src="../js/services/bim.js"></script>
+<script src="../js/services/number-impact.js"></script>
+<script src="../js/services/scroll-top.js"></script>
+<script src="../js/services/load.js"></script>
+<script src="../js/services/scroll-home.js"></script>
 
-  const animateNumber = (el) => {
-    const target = +el.dataset.target;
-    let current = 0;
-    const increment = target / 60;
 
-    const update = () => {
-      current += increment;
-      if (current < target) {
-        el.textContent = Math.round(current) + "%";
-        requestAnimationFrame(update);
-      } else {
-        el.textContent = target + "%";
-      }
-    };
 
-    update();
-  };
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && !entry.target.classList.contains("done")) {
-          entry.target.classList.add("done");
-          animateNumber(entry.target);
-        }
-      });
-    },
-    { threshold: 0.5 }
-  );
-
-  numbers.forEach(num => observer.observe(num));
-});
-</script>
-<script>
-const homeBtn = document.querySelector('.scroll-home');
-
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 400) {
-    homeBtn.classList.add('show');
-  } else {
-    homeBtn.classList.remove('show');
-  }
-});
-</script>
-<script>
-window.addEventListener("load", () => {
-  document.querySelector(".bim-hero").classList.add("loaded");
-});
-</script>
-<script>
-  let lastScrollTop = 0;
-  const partnerBack = document.querySelector('.partner-back');
-
-  window.addEventListener('scroll', () => {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-    if (scrollTop > lastScrollTop && scrollTop > 100) {
-      // Bajando → ocultar
-      partnerBack.classList.add('hidden');
-    } else {
-      // Subiendo → mostrar
-      partnerBack.classList.remove('hidden');
-    }
-
-    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-  });
-</script>
 
 
 

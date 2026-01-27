@@ -43,6 +43,36 @@ img {
 .service-architecture .bim-hero {
   background-image: url("../assets/services_imag/arch.png");
 }
+.service-interior .bim-hero {
+  background-image: url("../assets/services_imag/int_des.png");
+}
+.service-mep .bim-hero {
+  background-image: url("../assets/services_imag/mep.jpg");
+}
+.service-dev .bim-hero {
+  background-image: url("../assets/services_imag/dep.png");
+}
+.service-ref .bim-hero {
+  background-image: url("../assets/services_imag/refrush.png");
+}
+.service-man .bim-hero {
+  background-image: url("../assets/services_imag/proj.jpg");
+}
+.service-cgi .bim-hero {
+  background-image: url("../assets/services_imag/motion.png");
+}
+.service-drone .bim-hero {
+  background-image: url("../assets/services_imag/drone.jpg");
+}
+.service-eco .bim-hero {
+  background-image: url("../assets/services_imag/eco.jpeg");
+}
+.service-hosp .bim-hero {
+  background-image: url("../assets/services_imag/hospitality.png");
+}
+.service-space .bim-hero {
+  background-image: url("../assets/services_imag/space1.jpg");
+}
 
 
 .bim-hero {
