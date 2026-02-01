@@ -17,20 +17,7 @@ img {
   display: block;
   max-width: 100%;
 }
-.partner-back {
-  position: fixed;
-  top: 32px;
-  left: 32px;
-  z-index: 1000;
-  transform: scale(.6);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
 
-.partner-back.hidden {
-  opacity: 0;
-  pointer-events: none;
-  transform: scale(.6) translateY(-20px);
-}
 
 /* =========================
    HERO
@@ -464,4 +451,39 @@ img {
   }
 }
 
+.back-home {
+  position: fixed;
+  top: 32px;
+  left: 32px;
+  z-index: 999;
+
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color:   #ff7a00;
+;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+/* Cuando el usuario interactúa */
+body:hover .back-home {
+  opacity: 0.75;
+  pointer-events: auto;
+}
+
+.back-home:hover {
+  opacity: 1;
+}
+
+/* En mobile siempre visible */
+@media (max-width: 768px) {
+  .back-home {
+    opacity: 0.85;
+    pointer-events: auto;
+  }
+}
 

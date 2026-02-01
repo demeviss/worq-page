@@ -53,7 +53,7 @@ body {
   align-items: center;
   justify-content: space-between;
 
-  padding: 0 32px;            /* 🔥 separa del borde */
+  padding: 0 32px;            /*  separa del borde */
 }
 
 
@@ -166,7 +166,7 @@ body {
   margin-top: 96px;
   overflow: hidden;
   background: #000;
-   isolation: isolate;/* 🔥 MUY IMPORTANTE */
+   isolation: isolate;
 }
 
 
@@ -180,7 +180,7 @@ body {
   min-height: 100%;
   object-fit: cover;
   object-position: center;
-  z-index: -1; /* 🔥 CLAVE */
+  z-index: -1; /*  CLAVE */
 }
 
 /* MOBILE FIX */
@@ -194,7 +194,7 @@ body {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.4); /* 👈 40% opacidad */
+  background: rgba(0, 0, 0, 0.4); 
   z-index: 1;
 }
 
@@ -298,7 +298,7 @@ body {
 
   .button-group {
     flex-direction: column;
-    align-items: stretch; /* 👈 clave */
+    align-items: stretch; 
     gap: 14px;
     width: 100%;
   }
@@ -652,17 +652,7 @@ body {
   transform: translateX(4px);
 }
 
-.service-item {
-  .service-item {
-  display: grid;
-  grid-template-columns: 72px 1.5fr auto; /* icono | texto | botón */
-  align-items: center;
-  gap: 32px; /* 👈 AQUÍ está la elegancia */
-  padding: 28px 0;
-}
-  position: relative;
-  transition: all 0.3s ease;
-}
+
 .service-item span {
   font-size: 15px;
   letter-spacing: 0.08em;
@@ -700,7 +690,7 @@ body {
 }
 
 
-/* Si tus iconos son SVG o PNG */
+/* icons  PNG */
 .service-item img {
   width: 64px;
   height: auto;
@@ -743,27 +733,25 @@ body {
 }
 @media (max-width: 768px) {
   .service-item {
-    grid-template-columns: 56px 1fr;
-    gap: 24px;
-    padding: 22px 0;
-  }
-
- .service-item button {
-    font-size: 11px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: #ff7a00;
-
-    border: none;
-    background: none;
-    padding: 0;
-    margin-top: 4px;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 24px 0;
   }
 
   .service-item img {
-    width: 52px;
+    width: 48px;
+  }
+
+  .service-item span {
+    font-size: 14px;
+    letter-spacing: 0.06em;
+  }
+
+  .service-item button {
+    align-self: flex-start;
   }
 }
+
 
 /* ===== TABLET ===== */
 @media (max-width: 1024px) {
@@ -850,7 +838,7 @@ body {
   }
 
   .service-item button {
-    display: none; /* estilo editorial limpio */
+    display: none;
   }
 }
 
@@ -877,9 +865,78 @@ body {
   transition: filter 0.4s ease, transform 0.4s ease;
 }
 
-.gallery-grid img:hover {
+.gallery-item:hover img {
   filter: grayscale(0%);
   transform: scale(1.03);
+}
+
+.project-title {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+   color: #ffffff;
+
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 400;
+
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+
+  z-index: 2;
+}
+.gallery-item {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  text-decoration: none;
+}
+.gallery-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.gallery-item::after {
+  z-index: 1;
+}
+
+.project-title {
+  z-index: 2;
+}
+
+.gallery-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.55),
+    rgba(0,0,0,0)
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.gallery-item:hover::after {
+  opacity: 1;
+}
+
+.gallery-item:hover .project-title {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .project-title {
+    opacity: 1;
+    transform: none;
+    font-size: 11px;
+  }
+
+  .gallery-item::after {
+    opacity: 1;
+  }
 }
 
 /* RESPONSIVE */
@@ -963,7 +1020,7 @@ body {
 /* SLIDER CONTROLA EL ESPACIO */
 .testimonial-slider {
   position: relative;
-  max-width: 720px;   /* 👈 CLAVE */
+  max-width: 720px;   
   min-height: 180px;
 }
 
@@ -1122,16 +1179,16 @@ body {
   }
 
   .partners-track img {
-    height: 150px;   /* 👈 AQUÍ */
+    height: 150px;   
   }
 
 
   .partner-link {
-    min-width: 160px; /* 👈 más presencia */
+    min-width: 160px;
   }
 
   .partners-track img {
-    max-height: 95px;  /* 👈 MÁS GRANDE */
+    max-height: 95px;  
     max-width: 130px;
   }
 }
