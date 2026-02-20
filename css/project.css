@@ -204,7 +204,7 @@ img {
   overscroll-behavior: contain;
 
   width: 50vw;
-  max-width: 520px;
+  max-width: 620px;
   background: #0e0e0e;
 
   padding: 140px 80px 80px;
@@ -612,6 +612,7 @@ img {
   letter-spacing: 1px;
   margin-bottom: 20px;
   color: #fff;
+    margin-left: 40px;
 }
 
 .footer-col ul {
