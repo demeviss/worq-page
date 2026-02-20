@@ -803,6 +803,73 @@ body {
   }
 
 }
+/* =============================
+   RESPONSIVE
+============================= */
+
+@media (max-width: 900px) {
+
+  .cgi-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 220px;
+  }
+
+  .cgi-services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cgi-back {
+    top: 20px;
+    left: 20px;
+  }
+
+}
+
+
+@media (max-width: 768px) {
+  .site-footer {
+    /* Reducimos el padding de 6% a algo más pequeño como 20px o 5% */
+    padding: 60px 20px; 
+  }
+
+  .footer-inner {
+    /* Eliminamos el gap excesivo que separa las columnas cuando se apilan */
+    gap: 30px; 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Asegura que todo se alinee a la izquierda */
+  }
+
+  .footer-brand, .footer-col {
+    width: 100%; /* Obligamos a que ocupen todo el ancho disponible */
+  }
+  
+  .footer-text {
+    /* Eliminamos posibles restricciones de ancho y ajustamos tamaño */
+    max-width: 100%; 
+    font-size: 16px; /* Un poco más grande para legibilidad en móvil */
+    text-align: left; /* Aseguramos que no se centre */
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-col h4 {
+    margin-left: 0; /* Reseteamos el margen para que pegue a la izquierda */
+    margin-bottom: 15px;
+  }
+  
+  .footer-col ul {
+    padding-left: 0; /* Por si el navegador añade padding por defecto a la lista */
+  }
+}
+
+
+
+
+
+
+
+
 /* HERO CON IMAGEN */
 .hero {
   position: relative;
