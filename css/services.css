@@ -1,489 +1,867 @@
-
-/* =========================
-   GLOBAL
-========================= */
-* {
-  box-sizing: border-box;
-}
-
-body {
+body.service-bim {
   margin: 0;
   font-family: 'Outfit', sans-serif;
-  color: #000;
-  background: #fff;
+  background: #0a0a0a;
+  color: #fff;
+  overflow-x: hidden;
 }
 
-img {
-  display: block;
-  max-width: 100%;
-}
-
-
-/* =========================
-   HERO
-========================= */
-
-.service-bim .bim-hero {
-  background-image: url("../assets/services_imag/bim.jpg");
-}
-
-.service-architecture .bim-hero {
-  background-image: url("../assets/services_imag/arch.png");
-}
-.service-interior .bim-hero {
-  background-image: url("../assets/services_imag/int_des.png");
-}
-.service-mep .bim-hero {
-  background-image: url("../assets/services_imag/mep.jpg");
-}
-.service-dev .bim-hero {
-  background-image: url("../assets/services_imag/dep.png");
-}
-.service-ref .bim-hero {
-  background-image: url("../assets/services_imag/refrush.png");
-}
-.service-man .bim-hero {
-  background-image: url("../assets/services_imag/proj.jpg");
-}
-.service-cgi .bim-hero {
-  background-image: url("../assets/services_imag/motion.png");
-}
-.service-drone .bim-hero {
-  background-image: url("../assets/services_imag/drone.jpg");
-}
-.service-eco .bim-hero {
-  background-image: url("../assets/services_imag/eco.jpeg");
-}
-.service-hosp .bim-hero {
-  background-image: url("../assets/services_imag/hospitality.png");
-}
-.service-space .bim-hero {
-  background-image: url("../assets/services_imag/space1.jpg");
-}
-
-
-.bim-hero {
-  position: relative;
-  height: 100vh;
-  color: #ffffff;
-
-
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-
-.bim-hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,.45);
-}
-
-.bim-hero-content {
-  position: relative;
-  z-index: 2;
-
-  max-width: 1100px;
-  width: 100%;
-  padding: 0 24px;
-
-  text-align: center;
-
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 1.2s ease, transform 1.2s ease;
-}
-
-
-.bim-hero.loaded .bim-hero-content {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-
-.bim-hero-content h1 {
-  font-size: clamp(36px, 5vw, 64px);
-  font-weight: 600;
-  margin-bottom: 24px;
-}
-
-.bim-hero-content p {
-  font-size: 20px;
-  line-height: 1.6;
-}
-/* =========================
-   HERO – MOBILE
-========================= */
-@media (max-width: 768px) {
-
-  .bim-hero {
-    height: 100vh;
-    padding: 0 16px;
-    background-position: center top; /* evita cortar caras / edificios */
-  }
-
-  .bim-hero-overlay {
-    background: rgba(0, 0, 0, 0.55); /* más contraste en pantallas pequeñas */
-  }
-
-  .bim-hero-content {
-    max-width: 100%;
-    padding: 0;
-    text-align: center;
-  }
-
-  .bim-hero-content h1 {
-    font-size: clamp(28px, 8vw, 40px);
-    line-height: 1.2;
-    margin-bottom: 16px;
-  }
-
-  .bim-hero-content p {
-    font-size: 16px;
-    line-height: 1.6;
-    max-width: 90%;
-    margin: auto;
-  }
-}
-
-
-/* =========================
-   STORYTELLING
-========================= */
-.bim-story {
-  max-width: 1400px;
-  margin: auto;
-  padding: 140px 6%;
-}
-
-.bim-step {
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  align-items: center; /* 🔥 clave */
-  gap: 80px;
-  max-width: 1400px;
-  margin: auto;
-  padding: 120px 40px;
-}
-
-.bim-step-text {
-  max-width: 600px;
-}
-
-.step-number {
-  color: #ff7a00;
-  font-size: 18px;
-  font-weight: 600;
-  letter-spacing: 2px;
-}
-
-.bim-step-text h2 {
-  font-size: 48px;
-  margin: 16px 0 24px;
-}
-
-.bim-step-text p {
-  font-size: 18px;
-  line-height: 1.8;
-  color: #222;
-}
-
-/* IMAGEN */
-.bim-step-image {
-  width: 100%;
-  max-width: 100%;
-  overflow: hidden;
-}
-
-
-.bim-step-image img {
-  width: 100%;
-  max-width: 620px;
-  height: auto;
-  object-fit: contain; /* 🔥 evita deformación */
-}
-@media (max-width: 900px) {
-  .bim-step {
-    grid-template-columns: 1fr;
-    gap: 48px;
-  }
-
-  .bim-step-image img {
-    transform: none;
-    max-width: 100%;
-  }
-}
-
-/* sticky text */
-.bim-sticky {
-  position: sticky;
-  top: 120px;
-  align-self: flex-start;
-  max-width: 520px;
-
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all .9s ease;
-}
-
-.bim-step.visible .bim-sticky {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.bim-sticky h3 {
-  font-size: clamp(28px, 3vw, 38px);
-  font-weight: 500;
-  margin-bottom: 24px;
-}
-
-.bim-sticky h3 span {
-  color: #ff7a00;
-  font-weight: 600;
-  margin-right: 12px;
-}
-
-.bim-sticky p {
-  font-size: 17px;
-  line-height: 1.7;
-  color: #333;
-  text-align: justify;
-}
-
-/* image */
-.bim-visual {
-  opacity: 0;
-  transform: scale(.96);
-  transition: all 1s ease;
-}
-
-.bim-step.visible .bim-visual {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.bim-visual img {
-  border-radius: 8px;
-}
-
-/* =========================
-   IMPACT
-========================= */
-.bim-impact {
-  position: relative;
-  min-height: 100vh; /* toda la altura de la pantalla */
-  width: 100%;
-  background: url("../assets/imagenes/bim/Statistics.jpg") center center / cover no-repeat;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-}
-
-.impact-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(28, 28, 28, 0.6),
-    rgba(35, 34, 34, 0.9)
-  );
-}
-
-.bim-impact-content {
-  position: relative;
-  max-width: 1200px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 60px;
-}
-
-.impact-item h3 {
-  font-size:25px;
-  font-weight: 400;
-  line-height: 1.4;
-    color: #ffffff;
-}
-
-.impact-number {
-  display: block;
-  font-size: 48px;
-  font-weight: 600;
-  color: #ff7a00;
-  margin-top: 12px;
-}
-
-.impact-item p {
-  margin-top: 16px;
-  font-size: 16px;
-  line-height: 1.7;
-  color: #ccc;
-}
-
-/* Mobile */
-@media (max-width: 900px) {
-  .bim-impact-content {
-    grid-template-columns: 1fr;
-    gap: 48px;
-  }
-}
-
-/* =========================
-   BIM CLOSING STRIP
-========================= */
-.bim-closing {
-  background: #111; /* elegante, profesional */
-  padding: 120px 20px;
-  position: relative;
-}
-
-.bim-closing-content {
-  max-width: 900px;
-  margin: auto;
-  text-align: center;
-}
-
-.bim-closing p {
-  color: #eaeaea;
-  font-size: 17px;
-  line-height: 1.7;
-  letter-spacing: 0.3px;
-  margin-bottom: 24px;
-}
-
-/* =========================
-   BACK TO HOME BUTTON
-========================= */
-.scroll-home {
+/* ===== HERO ===== */
+.site-header {
   position: fixed;
-  bottom: 30px;
-  right: 30px;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  border: 1px solid rgba(255,255,255,0.4);
-  background: transparent;
-  color: #ff7a00;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 96px;
+  background: black;
+  z-index: 100;
+}
+
+
+/* oculto */
+.site-header.hide {
+  transform: translateY(-100%);
+}
+
+/* visible */
+.site-header.show {
+  transform: translateY(0);
+}
+
+
+
+.header-inner {
+  max-width: 1200px;          /* controla el ancho */
+  margin: 0 auto;             /* centra el contenido */
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 32px;            /*  separa del borde */
+}
+
+
+.logo img {
+  height: 80px;      /* ajustar según el diseño */
+  width: auto;
+  display: block;
+}
+@media (max-width: 768px) {
+  .logo img {
+    height: 28px;
+  }
+}
+
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+
+.header-nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+.client-login i {
+  font-size: 16px;
+}
+
+.client-login {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  text-transform: uppercase;
+  font-size: 18px;          /* súbelo 2–3 puntos */
+  font-weight: 500;
+  letter-spacing: 0.08em;   /* look más premium */
+  color: #ffffff;
+}
+
+
+.login-icon {
+  font-size: 18px;
+}
+
+.menu-btn {
+  width: 28px;
+  height: 22px;
+  padding: 0;
+  background: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+/* líneas */
+.menu-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: white;
   font-size: 22px;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-decoration: none;
-  opacity: 0;
-  pointer-events: none;
-  transition: all 0.3s ease;
-  z-index: 1000;
+  z-index: 120;
 }
 
-.scroll-home:hover {
+.menu-btn i {
+  transition: transform 0.3s ease;
+}
+
+
+@media (max-width: 768px) {
+  .menu-btn {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .site-header {
+    backdrop-filter: blur(6px);
+    background: rgba(0,0,0,0.9);
+  }
+}
+
+  .hero {
+    margin-top: 80px;
+    height: 100vh;
+  }
+
+  .header-inner {
+    padding: 0 20px;
+  }
+
+/* HAMBURGER BUTTON */
+.menu-btn {
+  width: 28px;
+  height: 22px;
+  background: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  z-index: 20;
+}
+
+.menu-btn span {
+  height: 2px;
+  width: 100%;
+  background: white;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+/* OVERLAY BASE (OCULTO POR DEFECTO) */
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  z-index: 20;
+}
+
+/* CUANDO ESTÁ ACTIVO */
+.menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* FONDO IZQUIERDO */
+.menu-backdrop {
+  flex: 1;
+  background: trans
+  
+}
+
+
+/* panel derecho */
+.menu-panel {
+  height: 100%;
+  max-height: 100vh;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  overscroll-behavior: contain;
+
+  width: 50vw;
+  max-width: 520px;
+  background: #0e0e0e;
+
+  padding: 140px 80px 80px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+
+  transform: translateX(100%);
+  transition: transform 0.5s ease;
+}
+
+
+.menu-panel a:hover {
+  opacity: 0.6;
+  transform: translateX(6px);
+}
+
+/* mostrar menú */
+.menu-overlay.active {
+  pointer-events: all;
+}
+
+.menu-overlay.active .menu-panel {
+  transform: translateX(0);
+}
+.menu-panel::before,
+.menu-panel::after {
+  content: '';
+  position: sticky;
+  left: 0;
+  right: 0;
+  height: 40px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.menu-panel::before {
+  top: 0;
+  background: linear-gradient(to bottom, #0e0e0e, transparent);
+}
+
+.menu-panel::after {
+  bottom: 0;
+  background: linear-gradient(to top, #0e0e0e, transparent);
+}
+
+/* links */
+.menu-panel a {
+  color: #fff;
+  font-family: 'Outfit', sans-serif;
+  font-size: 26px;        /* antes 32px */
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+
+/* plus icon */
+.plus {
+  color: #ff7a00;
+  font-size: 28px;
+}
+
+/* close button */
+.menu-close {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: #ff7a00;
+  cursor: pointer;
+}
+/* SUBMENU SERVICES */
+.menu-item {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.submenu-toggle {
+  background: none;
+  border: none;
+  color: #fff;
+  font-family: 'Outfit', sans-serif;
+  font-size: 26px;
+  font-weight: 300;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* contenedor oculto */
+.submenu {
+  display: none;
+  grid-template-columns: repeat(2, minmax(160px, 1fr));
+  gap: 16px 40px;
+  padding-left: 10px;
+}
+
+/* activo */
+.menu-item.open .submenu {
+  display: grid;
+}
+
+/* links */
+.submenu a {
+  font-size: 18px;
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.submenu a:hover {
+  color: #ff7a00;
+}
+
+/* mobile */
+@media (max-width: 768px) {
+  .submenu {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* client login */
+.client-btn {
+  margin-top: 48px;
+  padding: 14px 28px;
+  border: 1px solid #ff7a00;
+  color: #ff7a00;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.18em;
+  text-decoration: none;
+  width: fit-content;
+  transition: all 0.35s ease;
+}
+.client-btn:hover {
   background: #ff7a00;
   color: #111;
-  transform: translateY(-4px);
 }
-
-.scroll-home.show {
-  opacity: 1;
-  pointer-events: auto;
-}
-
 @media (max-width: 1024px) {
-
-  /* HERO */
-  .bim-hero-content h1 {
-    font-size: clamp(32px, 6vw, 48px);
-  }
-
-  .bim-hero-content p {
-    font-size: 18px;
-  }
-
-  /* STORY */
-  .bim-step {
-    grid-template-columns: 1fr;
-    padding: 100px 24px;
-    gap: 56px;
-  }
-
-  .bim-step-text {
-    max-width: 100%;
-  }
-
-  .bim-step-text h2 {
-    font-size: 38px;
-  }
-
-  .bim-step-image img {
-    max-width: 520px;
-  }
-
-  /* IMPACT */
-  .bim-impact-content {
-    padding: 0 40px;
-    gap: 48px;
+  .client-btn {
+    font-size: 13px;
+    padding: 13px 24px;
+    letter-spacing: 0.14em;
   }
 }
 
+@media (max-width: 768px) {
+  .client-btn {
+    width: 100%;
+    margin-top: 32px;
+    padding: 16px;
+    text-align: center;
+    font-size: 13px;
+  }
+}
 
+/* mobile */
 @media (max-width: 900px) {
+  .menu-panel {
+    width: 100vw;
+  }
+}
+.services-sticky {
+  position: sticky;
+  top: 120px;
+  height: fit-content;
+  align-self: flex-start;
+}
 
-  /* DESACTIVA STICKY EN MOBILE */
-  .bim-sticky {
+/* QUITA sticky de aquí */
+.services-text {
+  position: relative;
+}
+
+.services-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  padding: 6rem 8%;
+  background: #ffffff;
+  color: #000000;
+}
+
+/* TEXTO IZQUIERDO */
+.services-text {
+  position: sticky;
+  top: 120px; /* 👈 debajo del header */
+  align-self: start;
+}
+
+.services-text h2 {
+ font-size:50px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.services-text p {
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+}
+
+.services-cta {
+  display: inline-block;
+  margin-top: 2rem;
+  color: #ff7a00;
+  text-decoration: none;
+  border-bottom: 1px solid #ff7a00;
+}
+@media (max-width: 768px) {
+  .services-section {
+    grid-template-columns: 1fr;
+  }
+
+  .services-text {
     position: relative;
     top: auto;
+    margin-bottom: 3rem;
+  }
+}
+
+
+
+
+
+/* Animación */
+@keyframes lineReveal {
+  from { width: 0; }
+  to { width: 120px; }
+}
+.contact-form-section {
+  background: #0e0e0e;
+  padding: 0 8% 140px;
+  color: #fff;
+}
+
+
+
+.contact-form {
+  max-width: 900px;
+}
+
+/* GRID */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px 60px;
+  margin-bottom: 60px;
+}
+
+/* FIELD */
+.form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field.full {
+  max-width: 700px;
+  margin-bottom: 50px;
+}
+
+.form-field label {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #aaa;
+  margin-bottom: 10px;
+}
+
+/* INPUTS */
+.form-field input,
+.form-field select,
+.form-field textarea {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+  padding: 10px 0;
+  color: #fff;
+  font-size: 16px;
+  font-family: 'Outfit', sans-serif;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: #666;
+}
+
+.form-field input:focus,
+.form-field textarea:focus,
+.form-field select:focus {
+  outline: none;
+  border-bottom-color: #ff7a00;
+}
+
+/* CONSENT */
+.form-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 50px;
+  max-width: 700px;
+}
+
+.form-consent label {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #aaa;
+}
+
+/* BUTTON */
+.form-submit {
+  background: #ff7a00;
+  color: #111;
+  border: none;
+  padding: 16px 36px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.form-submit:hover {
+  background: #fff;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
   }
 
-  /* Asegura orden vertical correcto */
+  .contact-form-section {
+    padding: 0 6% 100px;
+  }
+}
+
+/* FOOTER */
+.site-footer {
+  background: #000;
+  color: #fff;
+  padding: 80px 8%;
+  font-family: 'Outfit', sans-serif;
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 60px;
+}
+
+/* BRAND */
+.footer-logo img {
+  max-width: 180px;
+  height: auto;
+  margin-bottom: 30px;
+}
+
+.footer-text {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+.footer-email {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer-email:hover {
+  color: #ff7a00;
+}
+
+.footer-social a {
+  color: #fff;
+  font-size: 18px;
+  margin-right: 12px;
+}
+
+.footer-social a:hover {
+  color: #ff7a00;
+}
+
+/* COLUMNS */
+.footer-col h4 {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col li {
+  margin-bottom: 10px;
+}
+
+.footer-col a {
+  color: #ccc;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.footer-col a:hover {
+  color: #ff7a00;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .site-footer {
+    padding: 60px 6%;
+  }
+}
+
+.section-divider {
+  position: relative;
+  margin: 120px 8% 80px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  overflow: hidden;
+}
+
+/* línea */
+.section-divider::before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgba(0,0,0,0.2);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1.2s ease;
+}
+
+/* texto */
+.section-divider span {
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #ff7a00;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.6s ease 0.6s, transform 0.6s ease 0.6s;
+}
+
+/* estado activo */
+.section-divider.is-visible::before {
+  transform: scaleX(1);
+}
+
+.section-divider.is-visible span {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ===== FIX OUR SERVICES MOBILE ===== */
+@media (max-width: 768px) {
+
+  /* 🔥 Mata el grid */
+  .services-section {
+    display: block;
+    padding: 4rem 6%;
+  }
+
+
+ }
+
+.bim-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 0 8%;
+  background: radial-gradient(circle at 30% 50%, rgba(255,122,0,0.15), transparent 60%),
+              #0a0a0a;
+}
+
+.bim-hero-content h1 {
+  font-size: clamp(50px, 6vw, 90px);
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.bim-hero-content p {
+  max-width: 600px;
+  color: #aaa;
+  line-height: 1.6;
+}
+
+/* ===== STORY SECTION ===== */
+
+.bim-story {
+  position: relative;
+  padding: 200px 8%;
+}
+
+.bim-step {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 120px;
+  margin-bottom: 250px;
+  align-items: center;
+  position: relative;
+}
+
+/* Timeline vertical line */
+
+.bim-story::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, #ff7a00, transparent);
+  opacity: 0.3;
+}
+
+.bim-sticky h3 {
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+.bim-sticky h3 span {
+  display: block;
+  font-size: 70px;
+  font-weight: 600;
+  margin-bottom: -10px;
+  color: #ff7a00; /* gris técnico */
+}
+
+
+.bim-sticky p,
+.bim-sticky li {
+  color: #bbb;
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+
+.bim-sticky li {
+  list-style: none;
+  position: relative;
+  padding-left: 20px;
+}
+
+.bim-sticky li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 6px;
+  height: 6px;
+  background: #ff7a00;
+}
+
+/* ===== VISUALS ===== */
+
+.bim-visual img {
+  width: 100%;
+  border-radius: 6px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+  transition: transform 0.6s ease;
+}
+
+.bim-visual img:hover {
+  transform: scale(1.03);
+}
+
+/* ===== IMPACT SECTION ===== */
+
+.bim-impact {
+  padding: 200px 8%;
+  background: #111;
+  position: relative;
+}
+
+.bim-impact-content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 80px;
+}
+
+.impact-item h3 {
+  font-weight: 300;
+  line-height: 1.4;
+}
+
+.impact-number {
+  display: block;
+  font-size: 80px;
+  color: #ff7a00;
+  margin-top: 20px;
+  font-weight: 500;
+}
+
+.impact-item p {
+  color: #aaa;
+  margin-top: 20px;
+}
+
+/* ===== CLOSING ===== */
+
+.bim-closing {
+  padding: 200px 8%;
+  text-align: center;
+}
+
+.bim-closing-content p {
+  max-width: 800px;
+  margin: 0 auto 40px auto;
+  color: #bbb;
+  line-height: 1.8;
+}
+
+/* ===== PREMIUM BACK BUTTON ===== */
+
+
+
+
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 1100px) {
+
   .bim-step {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .bim-story::before {
+    display: none;
+  }
+
+  .bim-impact-content {
     grid-template-columns: 1fr;
   }
 
-  .bim-visual {
-    order: 2;
-  }
-
-  .bim-sticky {
-    order: 1;
-  }
 }
 
-.back-home {
-  position: fixed;
-  top: 32px;
-  left: 32px;
-  z-index: 999;
-
-  font-size: 12px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  text-decoration: none;
-  color:   #ff7a00;
-;
-
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.4s ease;
-}
-
-/* Cuando el usuario interactúa */
-body:hover .back-home {
-  opacity: 0.75;
-  pointer-events: auto;
-}
-
-.back-home:hover {
-  opacity: 1;
-}
-
-/* En mobile siempre visible */
-@media (max-width: 768px) {
-  .back-home {
-    opacity: 0.85;
-    pointer-events: auto;
-  }
-}
 

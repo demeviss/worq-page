@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Worq Ethic | WorQ</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/ethics.css">
+</head>
+
+<body>
+
+<!-- PREMIUM BACK -->
+<a href="../index.html" class="ethic-back">
+  <span></span>
+  Back to Home
+</a>
+
+
+<main class="ethic-page">
+
+  <!-- HERO -->
+  <section class="ethic-hero">
+    <h1>
+      Our<br>
+      Worq<br>
+      Ethic
+    </h1>
+    <p>
+      We don’t just deliver projects.  
+      We build trust, clarity and long-term impact.
+    </p>
+  </section>
+
+  <!-- MANIFESTO -->
+  <section class="ethic-manifesto">
+
+    <div class="ethic-block">
+      <h2>01</h2>
+      <div>
+        <h3>Precision Over Noise</h3>
+        <p>
+          We believe clarity beats complexity. Every line drawn,
+          every system designed, every decision made — intentional.
+        </p>
+      </div>
+    </div>
+
+    <div class="ethic-block">
+      <h2>02</h2>
+      <div>
+        <h3>Collaboration is Strength</h3>
+        <p>
+          Architects, engineers, consultants and contractors —
+          we operate as one coordinated force.
+        </p>
+      </div>
+    </div>
+
+    <div class="ethic-block">
+      <h2>03</h2>
+      <div>
+        <h3>Built for the Long Term</h3>
+        <p>
+          Our work considers lifecycle performance, sustainability,
+          operational intelligence and future adaptability.
+        </p>
+      </div>
+    </div>
+
+    <div class="ethic-block">
+      <h2>04</h2>
+      <div>
+        <h3>Execution Matters</h3>
+        <p>
+          Ideas are powerful. Execution defines excellence.
+          We deliver with discipline and accountability.
+        </p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- CLOSING STATEMENT -->
+  <section class="ethic-closing">
+    <h2>
+      Excellence is not a promise.<br>
+      It is a standard.
+    </h2>
+  </section>
+
+</main>
+
+<script>
+
+/* Reveal animation */
+const blocks = document.querySelectorAll(".ethic-block");
+
+window.addEventListener("scroll", () => {
+  blocks.forEach(block => {
+    const rect = block.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 100) {
+      block.classList.add("visible");
+    }
+  });
+});
+
+</script>
+
+<script>
+const backBtn = document.querySelector(".ethic-back");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 120) {
+    backBtn.classList.add("hide");
+  } else {
+    backBtn.classList.remove("hide");
+  }
+});
+</script>
+
+</body>
+</html>
