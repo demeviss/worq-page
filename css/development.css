@@ -888,79 +888,133 @@ body {
 
 
  }
-/* ===== HERO SECTION site constructions===== */
-.hero{
-  height:100vh;
-  position:relative;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  padding:0 10%;
 
-  background:
-    linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)),
-    url('../assets/hero-construction.jpg') center/cover no-repeat;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* HERO CON IMAGEN */
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 0 8%;
+  background: url('../assets/services_imag/dep.png') center/cover no-repeat;
 }
 
-/* ===== CONTENT ===== */
-.hero-content{
-  max-width:800px;
+/* Overlay oscuro elegante */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0,0,0,0.85) 0%,
+    rgba(0,0,0,0.75) 40%,
+    rgba(0,0,0,0.6) 100%
+  );
 }
 
-/* ===== TITLE ===== */
-.hero h1{
-  font-size:clamp(48px, 6vw, 90px);
-  font-weight:500;
-  letter-spacing:-1px;
-  margin-bottom:20px;
-  opacity:0;
-  transform:translateY(30px);
-  animation:fadeUp 1s ease forwards;
+/* Contenido */
+.hero-content {
+  position: relative;
+  max-width: 900px;
+  z-index: 2;
+  animation: fadeUp 1.2s ease forwards;
 }
 
-/* ===== SUBTITLE ===== */
-.hero p{
-  font-size:18px;
-  color:#bbb;
-  line-height:1.7;
-  opacity:0;
-  transform:translateY(30px);
-  animation:fadeUp 1s ease forwards;
-  animation-delay:.4s;
+/* Headline */
+.hero h1 {
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-weight: 300; /* más elegante */
+  line-height: 1.05;
+  letter-spacing: -1px;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
 }
 
-/* ===== DECORATIVE LINE ===== */
-.hero::after{
-  content:"";
-  position:absolute;
-  bottom:60px;
-  width:120px;
-  height:1px;
-  background:#ff7a00;
+/* Palabra acento */
+.hero h1 span {
+  color: #ff7a00;
+  font-weight: 400;
 }
 
-/* ===== ANIMATION ===== */
-@keyframes fadeUp{
-  to{
-    opacity:1;
-    transform:translateY(0);
+/* Subheadline */
+.hero p {
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: #cfcfcf;
+  max-width: 500px;
+}
+
+/* Línea minimal */
+.accent-line {
+  width: 60px;
+  height: 2px;
+  margin-top: 2.5rem;
+  background: linear-gradient(90deg, #ff7a00, transparent);
+}
+
+/* Animación */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
+/* Waiting text */
+.waiting {
+  margin-top: 3rem;
+  font-size: 0.8rem;
+  letter-spacing: 6px;
+  font-weight: 400;
+  color: #888;
+  position: relative;
+  display: inline-block;
+  text-transform: uppercase;
+  animation: fadeIn 2s ease forwards;
+}
 
-/* ===== RESPONSIVE ===== */
-@media(max-width:768px){
+/* Línea animada debajo */
+.waiting::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #ff7a00, transparent);
+  animation: pulseLine 2.5s infinite ease-in-out;
+}
 
-  .hero{
-    padding:0 6%;
+/* Animación breathing texto */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseLine {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scaleX(0.6);
   }
-
-  .hero h1{
-    font-size:42px;
+  50% {
+    opacity: 1;
+    transform: scaleX(1);
   }
-
-  .hero p{
-    font-size:16px;
-  }
-
 }
