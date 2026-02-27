@@ -674,7 +674,7 @@ body {
 /* TEXTO IZQUIERDO */
 .services-text {
   position: sticky;
-  top: 120px; /* 👈 debajo del header */
+  top: 120px; /* debajo del header */
   align-self: start;
 }
 
@@ -1720,7 +1720,7 @@ body {
 /* ===== FIX OUR SERVICES MOBILE ===== */
 @media (max-width: 768px) {
 
-  /* 🔥 Mata el grid */
+  /*  grid */
   .services-section {
     display: block;
     padding: 4rem 6%;
